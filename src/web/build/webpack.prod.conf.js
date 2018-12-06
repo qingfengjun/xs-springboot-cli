@@ -8,7 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-
+let path = require('path') // 增加
 var env = config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
@@ -53,6 +53,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       filename: config.build.index,
       template: 'index.html',
       inject: true,
+      favicon: path.resolve('favicon.ico'), //新增
       minify: {
         removeComments: true,
         collapseWhitespace: true,

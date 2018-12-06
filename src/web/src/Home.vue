@@ -2,7 +2,7 @@
 	<el-row class="container">
 		<el-col :span="24" class="header">
 		    <el-col :span="20" class="logo">
-				<img src="./assets/logo4.png" /> <span>学校管理<i class="txt">系统</i></span>
+				<img src="./assets/logo4.png" /> <span>Spring Boot<i class="txt">&nbsp;cli</i></span>
 			</el-col>
 			<el-col :span="4" class="userinfo">
 				<el-dropdown trigger="click">

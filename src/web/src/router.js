@@ -16,5 +16,6 @@ let router = [
     		{ path: '/student', component: student, name: '学生管理' }
       ] 
     }
-]; 
+];
+
 export default router;

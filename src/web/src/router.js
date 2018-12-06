@@ -6,7 +6,7 @@ import action from './perm/action'
 
 let router = [{
     path: '/',
-    name: '首页',
+    name: 'Dashbord',
     component: Home,
     redirect: '/index',
     iconCls: 'el-icon-document',

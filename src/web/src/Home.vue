@@ -2,7 +2,7 @@
 	<el-row class="container">
 		<el-col :span="24" class="header">
 		    <el-col :span="4" class="logo">
-				<img src="./assets/logo4.png" /> <span>Spring Boot<i class="txt">&nbsp;cli</i></span>
+				<img src="./assets/logo.png" /> <span>Spring Boot<i class="txt">&nbsp;cli</i></span>
 			</el-col>
 			 <el-col :span="16" class="logo">
 			<el-menu

@@ -33,4 +33,3 @@ axios.interceptors.response.use(data => { // 响应成功关闭loading
 })
 
 export default axios
-// export const addStudent = params => { return axios.post(`/api/student/addStudent`,  params)};

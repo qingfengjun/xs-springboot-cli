@@ -1,30 +1,26 @@
 package com.springboot.cli.pojo;
 
-import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
+
 @Entity
+@Table(name="cli_user")
 public class User implements Serializable {
 
-//    private static final long serialVersionUID = 1L;
     @Id
-//    @GeneratedValue
-    private String id;
+    @GeneratedValue
+    private long id;
+    @Column(nullable = false)
     private String account;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String password;
     private String mail;
     private String face;
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getAccount() {
         return account;
@@ -64,5 +60,13 @@ public class User implements Serializable {
 
     public void setFace(String face) {
         this.face = face;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

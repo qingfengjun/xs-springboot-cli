@@ -2,7 +2,6 @@ import Home from './Home'
 import index from './index'
 import user from './perm/user'
 import role from './perm/role'
-import action from './perm/action'
 
 let router = [{
     path: '/',
@@ -29,10 +28,6 @@ let router = [{
         path: '/perm/role',
         component: role,
         name: '角色'
-      }, {
-        path: '/perm/action',
-        component: action,
-        name: '操作项'
       }
     ]
   },

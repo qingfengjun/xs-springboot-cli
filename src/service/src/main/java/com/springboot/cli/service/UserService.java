@@ -7,8 +7,6 @@ import java.util.List;
 public interface UserService {
     List<User> getUserList();
 
-    User findUserById(long id);
-
     void save(User user);
 
     void edit(User user);

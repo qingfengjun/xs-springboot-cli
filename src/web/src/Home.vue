@@ -1,20 +1,10 @@
 <template>
 	<el-row class="container">
 		<el-col :span="24" class="header">
-		    <el-col :span="4" class="logo">
+		    <el-col :span="20" class="logo">
 				<img src="./assets/logo.png" /> <span>Spring Boot<i class="txt">&nbsp;cli</i></span>
 			</el-col>
-			 <el-col :span="16" class="logo">
-			<el-menu
-  class="el-menu-demo"
-  mode="horizontal"
-  background-color="#545c64"
-  text-color="#fff"
-  active-text-color="#ffd04b">
-  <el-menu-item index="1">我的流程</el-menu-item>
-    <el-menu-item index="2">待我处理</el-menu-item>
-</el-menu>
-</el-col>
+
 			<el-col :span="4" class="userinfo">
 				<el-dropdown trigger="click">
 					<span class="el-dropdown-link userinfo-inner"><img src="./assets/user.png" /> {{sysUserName}}</span>
@@ -94,7 +84,9 @@
    }
 </script> 
 <style scoped lang="scss">
-.container {
+	@import '~scss_vars';
+	
+	.container {
 		position: absolute;
 		top: 0px;
 		bottom: 0px;
@@ -102,14 +94,15 @@
 		.header {
 			height: 60px;
 			line-height: 60px;
-			background: #1F2D3D;
-			color: #c0ccda;
+			background: $color-primary;
+			color:#fff;
 			.userinfo {
 				text-align: right;
 				padding-right: 35px;
+				float: right;
 				.userinfo-inner {
-					color: #c0ccda;
 					cursor: pointer;
+					color:#fff;
 					img {
 						width: 40px;
 						height: 40px;
@@ -120,37 +113,88 @@
 				}
 			}
 			.logo {
+				//width:230px;
+				height:60px;
 				font-size: 22px;
+				padding-left:20px;
+				padding-right:20px;
+				border-color: rgba(238,241,146,0.3);
+				border-right-width: 0px;
+				border-right-style: solid;
 				img {
 					width: 40px;
 					float: left;
 					margin: 10px 10px 10px 18px;
 				}
 				.txt {
-					color: #20a0ff
+					color:#fff;
 				}
+			}
+			.logo-width{
+				width:230px;
+			}
+			.logo-collapse-width{
+				width:60px
+			}
+			.tools{
+				padding: 0px 23px;
+				width:14px;
+				height: 60px;
+				line-height: 60px;
+				cursor: pointer;
 			}
 		}
 		.main {
-			background: #324057;
+			display: flex;
+			// background: #324057;
 			position: absolute;
 			top: 60px;
 			bottom: 0px;
 			overflow: hidden;
 			aside {
+				flex:0 0 230px;
+				width: 230px;
+				// position: absolute;
+				// top: 0px;
+				// bottom: 0px;
+				.el-menu{
+					height: 100%;
+				}
+				.collapsed{
+					width:60px;
+					.item{
+						position: relative;
+					}
+					.submenu{
+						position:absolute;
+						top:0px;
+						left:60px;
+						z-index:99999;
+						height:auto;
+						display:none;
+					}
+				}
+			}
+			.menu-collapsed{
+				flex:0 0 60px;
+				width: 60px;
+			}
+			.menu-expanded{
+				flex:0 0 230px;
 				width: 230px;
 			}
 			.content-container {
-				background: #f1f2f7;
-				position: absolute;
-				right: 0px;
-				top: 0px;
-				bottom: 0px;
-				left: 230px;
+				// background: #f1f2f7;
+				flex:1;
+				// position: absolute;
+				// right: 0px;
+				// top: 0px;
+				// bottom: 0px;
+				// left: 230px;
 				overflow-y: scroll;
 				padding: 20px;
 				.breadcrumb-container {
-					margin-bottom: 15px;
+					//margin-bottom: 15px;
 					.title {
 						width: 200px;
 						float: left;
@@ -166,8 +210,5 @@
 				}
 			}
 		}
-	}
-	.el-menu{
-		background:none;
 	}
 </style>

@@ -7,6 +7,7 @@ export default {
       form: {},
       editform: {},
       formLabelWidth: '120px',
+      filters:{name:""},
       actions: [{
         id: "perm.cli",
         label: "系统管理",

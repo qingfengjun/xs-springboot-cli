@@ -41,7 +41,6 @@ public class RoleController {
 
     @RequestMapping("/edit")
     public String edit(@RequestBody Role role) {
-
         roleService.deleteByRoleId(role.getId());
         List<RoleAction> roleActionsrole=role.getRoleActions();
         for(RoleAction roleActionsrol : roleActionsrole) {

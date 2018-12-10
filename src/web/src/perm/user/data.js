@@ -9,10 +9,13 @@ export default{
 			  name: '',
 			  face: '',
 			  mail: '',
-			  password: ''
+				password: '',
+				userRoles:[]
 			},
 			editform:{},
-			formLabelWidth: '120px'
+			formLabelWidth: '120px',
+			roleDatas:[],
+			filters:{name:""}
 		  }
 	}
 }

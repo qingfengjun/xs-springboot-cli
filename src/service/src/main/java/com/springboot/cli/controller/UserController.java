@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.springboot.cli.dao.UserRepository;
+import com.springboot.cli.pojo.RoleAction;
 import com.springboot.cli.pojo.User;
+import com.springboot.cli.pojo.UserRole;
 import com.springboot.cli.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,11 +35,22 @@ public class UserController {
     @RequestMapping("/add")
     public String add(@RequestBody User user) {
         userService.save(user);
+        List<UserRole> userRoles=user.getUserRoles();
+        for(UserRole userRole : userRoles) {
+            userRole.setUserId(user.getId());
+            userService.saveUserRole(userRole);
+        }
         return "success";
     }
 
     @RequestMapping("/edit")
     public String edit(@RequestBody User user) {
+        userService.deleteByUserId(user.getId());
+       List<UserRole> userRoles=user.getUserRoles();
+        for(UserRole userRole : userRoles) {
+            userRole.setUserId(user.getId());
+            userService.saveUserRole(userRole);
+        }
         userService.edit(user);
         return "success";
     }

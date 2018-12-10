@@ -2,6 +2,8 @@ package com.springboot.cli.pojo;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -19,7 +21,8 @@ public class User implements Serializable {
     private String password;
     private String mail;
     private String face;
-
+    @OneToMany(mappedBy="userId",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    private List<UserRole> userRoles=new ArrayList<>();
 
 
     public String getAccount() {
@@ -68,5 +71,13 @@ public class User implements Serializable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<UserRole> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(List<UserRole> userRoles) {
+        this.userRoles = userRoles;
     }
 }

@@ -1,9 +1,17 @@
 <template>
-	<div > 
-<el-row>
-  <el-button @click="dialogAddFormVisible = true" class="el-icon-plus">新增</el-button>
-</el-row>
-<el-row>
+<section>
+    <!--工具条-->
+		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
+			<el-form :inline="true" :model="filters">
+				<el-form-item>
+					<el-input v-model="filters.name" placeholder="姓名"></el-input>
+				</el-form-item>
+				<el-form-item>
+          <el-button type="primary" @click="dialogAddFormVisible = true" class="el-icon-plus">新增</el-button>
+				</el-form-item>
+			</el-form>
+		</el-col>
+<template>
 <el-table
     :data="tableData3"
     height="500"
@@ -12,31 +20,31 @@
     <el-table-column
       prop="id"
       label="角色ID"
-      width="180">
+      >
     </el-table-column>
     <el-table-column
       prop="name"
       label="角色名称"
-      width="180">
+      >
     </el-table-column>
 	<el-table-column
       label="操作"
-      width="180">
+      >
       <template slot-scope="scope">
 	   <el-button
-          type="text"
+           type="primary" icon="el-icon-edit"
           size="small" @click="editRoleDetail(scope.row)">
           编辑
         </el-button>
         <el-button
-          type="text"
+           type="danger" icon="el-icon-delete"
           size="small" @click="deleteUser(scope.row)">
           删除
         </el-button>
       </template>
     </el-table-column>
   </el-table>
-</el-row>
+</template>
 <el-dialog title="新增角色" :visible.sync="dialogAddFormVisible">
   <el-form :model="form">
     <el-form-item label="角色名" :label-width="formLabelWidth">
@@ -77,7 +85,7 @@
     <el-button type="primary" @click="editUser">确 定</el-button>
   </div>
 </el-dialog>
-	</div>
+</section>
 </template>
 <script type="text/javascript">
 import data from "./data";

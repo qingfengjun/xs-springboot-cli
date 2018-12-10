@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import App from './App'
 import routes from './router'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
+import 'element-ui/lib/theme-chalk/index.css'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 

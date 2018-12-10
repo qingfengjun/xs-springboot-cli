@@ -1,7 +1,10 @@
 package com.springboot.cli.service;
 
 import com.springboot.cli.dao.UserRepository;
+import com.springboot.cli.dao.UserRoleRepository;
+import com.springboot.cli.pojo.RoleAction;
 import com.springboot.cli.pojo.User;
+import com.springboot.cli.pojo.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserRoleRepository userRoleRepository;
 
     @Override
     public List<User> getUserList() {
@@ -31,5 +36,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(long id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteByUserId(long userId) {
+        userRoleRepository.deleteByUserId(userId);
+    }
+
+    @Override
+    public void saveUserRole(UserRole userRole) {
+        userRoleRepository.save(userRole);
     }
 }

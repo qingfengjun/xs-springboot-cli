@@ -1,9 +1,16 @@
 import Home from './Home'
+import Login from './Login'
 import index from './index'
 import user from './perm/user'
 import role from './perm/role'
 
-let router = [{
+let router = [
+  {
+    path: '/login',
+    component: Login,
+    name: '',
+    hidden: true
+},{
     path: '/',
     name: 'Dashbord',
     component: Home,
@@ -19,15 +26,17 @@ let router = [{
     name: '用户和权限',
     component: Home,
     iconCls: 'el-icon-document',
-    children: [{
-        path: '/perm/user',
-        component: user,
-        name: '用户'
-      },
+    children: [
       {
         path: '/perm/role',
         component: role,
+        perm:"perm.cli.user",
         name: '角色'
+      },{
+        path: '/perm/user',
+        component: user,
+        perm:"perm.cli.role",
+        name: '用户'
       }
     ]
   },

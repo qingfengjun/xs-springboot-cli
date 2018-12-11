@@ -1,6 +1,7 @@
 package com.springboot.cli.service;
 
 import com.springboot.cli.pojo.User;
+import com.springboot.cli.pojo.UserModel;
 import com.springboot.cli.pojo.UserRole;
 
 import java.util.List;
@@ -15,4 +16,5 @@ public interface UserService {
     void delete(long id);
     void deleteByUserId(long userId);
     void saveUserRole(UserRole userRole);
+    UserModel queryUserByLogin(String account, String password);
 }

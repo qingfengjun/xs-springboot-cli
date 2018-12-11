@@ -9,6 +9,8 @@
 				<el-dropdown trigger="click">
 					<span class="el-dropdown-link userinfo-inner"><img src="./assets/user.png" /> {{sysUserName}}</span>
 					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item>我的消息</el-dropdown-item>
+						<el-dropdown-item>设置</el-dropdown-item>
 						<el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
 					</el-dropdown-menu>
 				</el-dropdown>
@@ -79,6 +81,15 @@
 				}).catch(() => {
 
 				}); 
+			}
+		},
+		mounted() {
+			var user = sessionStorage.getItem('user');
+			if (user) {
+				user = JSON.parse(user);
+				console.log(user);
+				this.sysUserName = user.name || '';
+				this.sysUserAvatar = user.avatar || '';
 			}
 		}
    }

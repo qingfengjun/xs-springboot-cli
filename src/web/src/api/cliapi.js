@@ -8,3 +8,6 @@ import  axios from './config';
  export const addRole = params => { return axios.post(`/api/role/add`,  params)};
  export const editRole = params => { return axios.post(`/api/role/edit`,  params)};
  export const deleteRole = params => { return axios.post(`/api/role/delete`,  params)};
+
+ export const requestLogin = params => { return axios.post(`/api/user/login`,  params)};
+ 

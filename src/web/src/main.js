@@ -12,18 +12,20 @@ Vue.use(ElementUI)
 const router = new Router({
   routes
 });
-//  判断是否需要登录权限 以及是否登录
-router.beforeEach((to, from, next) => {
-  console.log(to);
 
-  //NProgress.start();
-  next();
-})
 router.beforeEach((to, from, next) => {
   document.title = to.name;
   NProgress.start();
-  next()
-});
+  if (to.path == '/login') {
+    sessionStorage.removeItem('user');
+  }
+  let user = JSON.parse(sessionStorage.getItem('user'));
+  if (!user && to.path != '/login') {
+    next({ path: '/login' })
+  } else {
+    next()
+  }
+})
 
 router.afterEach(transition => {
   NProgress.done();

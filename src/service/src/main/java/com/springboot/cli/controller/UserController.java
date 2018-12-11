@@ -6,6 +6,7 @@ import java.util.Map;
 import com.springboot.cli.dao.UserRepository;
 import com.springboot.cli.pojo.RoleAction;
 import com.springboot.cli.pojo.User;
+import com.springboot.cli.pojo.UserModel;
 import com.springboot.cli.pojo.UserRole;
 import com.springboot.cli.service.UserService;
 import org.slf4j.Logger;
@@ -62,5 +63,11 @@ public class UserController {
         logger.info(paras.get("id"));
         userService.delete(id);
         return "success";
+    }
+    @RequestMapping("/login")
+    public UserModel login(@RequestBody Map<String,String> paras) {
+        String account=paras.get("username");
+        String password=paras.get("password");
+        return userService.queryUserByLogin(account,password);
     }
 }

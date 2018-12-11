@@ -1,9 +1,11 @@
 package com.springboot.cli.service;
 
+import com.springboot.cli.dao.RoleActionRepository;
 import com.springboot.cli.dao.UserRepository;
 import com.springboot.cli.dao.UserRoleRepository;
 import com.springboot.cli.pojo.RoleAction;
 import com.springboot.cli.pojo.User;
+import com.springboot.cli.pojo.UserModel;
 import com.springboot.cli.pojo.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     @Autowired
     private UserRoleRepository userRoleRepository;
+    @Autowired
+    private RoleActionRepository roleActionRepository;
 
     @Override
     public List<User> getUserList() {
@@ -46,5 +50,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUserRole(UserRole userRole) {
         userRoleRepository.save(userRole);
+    }
+
+    @Override
+    public UserModel queryUserByLogin(String account, String password){
+        UserModel user=new UserModel();
+        List<User> users= userRepository.queryUserByLogin(account,password);
+        if (users.size()>0){
+            User userBase= users.get(0);
+            user.setId(userBase.getId());
+            user.setAccount(userBase.getAccount());
+            user.setName(userBase.getName());
+            user.setUserRoles(userBase.getUserRoles());
+            user.setFace(userBase.getFace());
+            user.setRoleActions(roleActionRepository.queryRoleActionByUser(user.getId()));
+        }
+        return  user;
     }
 }

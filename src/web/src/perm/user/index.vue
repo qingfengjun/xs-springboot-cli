@@ -36,9 +36,12 @@
       prop="password"
       label="密码">
     </el-table-column>
-	<el-table-column
-      prop="face"
-      label="头像">
+    	<el-table-column
+      label="头像"
+      >
+      <template slot-scope="scope">
+	    <img  :src="scope.row.face" class="avatar">
+      </template>
     </el-table-column>
 		<el-table-column
       prop="mail"
@@ -75,8 +78,19 @@
     </el-form-item>
 	    </el-form-item>
 	    <el-form-item label="头像" :label-width="formLabelWidth">
-      <el-input v-model="form.face" ></el-input>
+<el-upload
+  class="avatar-uploader"
+  action="https://jsonplaceholder.typicode.com/posts/"
+  :show-file-list="false"
+  :on-success="handleAddAvatarSuccess"
+  :before-upload="beforeAvatarUpload">
+  <img v-if="form.face" :src="form.face" class="avatar">
+  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+</el-upload>
+
+      <!-- <el-input v-model="form.face" ></el-input> -->
     </el-form-item>
+
 	    <el-form-item label="邮箱" :label-width="formLabelWidth">
       <el-input v-model="form.mail" ></el-input>
     </el-form-item>
@@ -105,6 +119,15 @@
 	    </el-form-item>
 	    <el-form-item label="头像" :label-width="formLabelWidth">
       <el-input v-model="editform.face" ></el-input>
+      <el-upload
+  class="avatar-uploader"
+  action="/api/upload/img"
+  :show-file-list="false"
+  :on-success="handleEditAvatarSuccess"
+  :before-upload="beforeAvatarUpload">
+  <img v-if="editform.face" :src="editform.face" class="avatar">
+  <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+</el-upload>
     </el-form-item>
 	    <el-form-item label="邮箱" :label-width="formLabelWidth">
       <el-input v-model="editform.mail" ></el-input>
@@ -138,5 +161,29 @@ export default {
   }
 };
 </script>
-<style type="text/css">
+<style>
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+  border-color: #409eff;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 20px;
+}
 </style>

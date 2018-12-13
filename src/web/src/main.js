@@ -6,6 +6,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import './common/permUtils'
 
 Vue.use(Router)
 Vue.use(ElementUI)

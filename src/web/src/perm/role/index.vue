@@ -7,7 +7,7 @@
 					<el-input v-model="filters.name" placeholder="姓名"></el-input>
 				</el-form-item>
 				<el-form-item>
-          <el-button type="primary" @click="dialogAddFormVisible = true" class="el-icon-plus">新增</el-button>
+          <el-button type="primary" @click="dialogAddFormVisible = true" class="el-icon-plus" v-has="'perm.cli.role.add'">新增</el-button>
 				</el-form-item>
 			</el-form>
 		</el-col>
@@ -16,7 +16,7 @@
     :data="tableData3"
     height="500"
     border
-    style="width: 100%">
+    style="width: 100%" v-has="'perm.cli.role.query'">
     <el-table-column
       prop="id"
       label="角色ID"
@@ -33,12 +33,12 @@
       <template slot-scope="scope">
 	   <el-button
            type="primary" icon="el-icon-edit"
-          size="small" @click="editRoleDetail(scope.row)">
+          size="small" @click="editRoleDetail(scope.row)" v-has="'perm.cli.role.edit'">
           编辑
         </el-button>
         <el-button
            type="danger" icon="el-icon-delete"
-          size="small" @click="deleteUser(scope.row)">
+          size="small" @click="deleteUser(scope.row)" v-has="'perm.cli.role.delete'">
           删除
         </el-button>
       </template>

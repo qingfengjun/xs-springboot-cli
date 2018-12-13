@@ -30,12 +30,12 @@ let router = [
       {
         path: '/perm/role',
         component: role,
-        perm:"perm.cli.user",
+        perm:"perm.cli.role",
         name: '角色'
       },{
         path: '/perm/user',
         component: user,
-        perm:"perm.cli.role",
+        perm:"perm.cli.user",
         name: '用户'
       }
     ]

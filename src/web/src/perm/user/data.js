@@ -12,6 +12,7 @@ export default{
 				password: '',
 				userRoles:[]
 			},
+			imageUrl: '',
 			editform:{},
 			formLabelWidth: '120px',
 			roleDatas:[],

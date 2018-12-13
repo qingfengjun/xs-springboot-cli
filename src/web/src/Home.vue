@@ -7,7 +7,7 @@
 
 			<el-col :span="4" class="userinfo">
 				<el-dropdown trigger="click">
-					<span class="el-dropdown-link userinfo-inner"><img src="./assets/user.png" /> {{sysUserName}}</span>
+					<span class="el-dropdown-link userinfo-inner"><img :src="sysUserAvatar" /> {{sysUserName}}</span>
 					<el-dropdown-menu slot="dropdown">
 						<el-dropdown-item>我的消息</el-dropdown-item>
 						<el-dropdown-item>设置</el-dropdown-item>
@@ -20,10 +20,10 @@
 			<aside>
 				 <el-menu :default-active="$route.path" class="el-menu-vertical-demo" @open="handleopen" @close="handleclose" @select="handleselect"
 					theme="dark" unique-opened router>
-					<template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
+					<template v-for="(item,index) in $router.options.routes" v-if="!item.hidden" v-has="item.perm">
 						<el-submenu :index="index+''" v-if="!item.leaf">
 							<template slot="title"><i :class="item.iconCls"></i>{{item.name}}</template>
-							<el-menu-item v-for="child in item.children" :index="child.path" v-if="!child.hidden">{{child.name}}</el-menu-item>
+							<el-menu-item v-for="child in item.children" :index="child.path" v-if="!child.hidden" v-has="child.perm">{{child.name}}</el-menu-item>
 						</el-submenu>
 						<el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path"><i :class="item.iconCls"></i>{{item.children[0].name}}</el-menu-item>
 					</template>
@@ -88,8 +88,9 @@
 			if (user) {
 				user = JSON.parse(user);
 				console.log(user);
+				console.log(user);
 				this.sysUserName = user.name || '';
-				this.sysUserAvatar = user.avatar || '';
+				this.sysUserAvatar = user.face || '';
 			}
 		}
    }

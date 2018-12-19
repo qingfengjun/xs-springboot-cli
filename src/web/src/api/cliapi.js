@@ -10,4 +10,7 @@ import  axios from './config';
  export const deleteRole = params => { return axios.post(`/api/role/delete`,  params)};
 
  export const requestLogin = params => { return axios.post(`/api/user/login`,  params)};
- 
+
+ //访问日志
+ export const AddAccessLog = params => { return axios.post(`/api/common/log`,  params)};
+ export const getAccessLog = params => { return axios.post(`/api/common/accessloglist`,  params)};

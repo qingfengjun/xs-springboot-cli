@@ -7,7 +7,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import './common/permUtils'
-
+import {
+  AddAccessLog
+} from './api/cliapi'
 Vue.use(Router)
 Vue.use(ElementUI)
 const router = new Router({
@@ -16,6 +18,17 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   document.title = to.name;
+
+  var logParas={
+    modelName:to.matched[0].name,
+     functionName:to.name,
+     url:to.fullPath,
+     params:JSON.stringify(to.params)
+  }
+  AddAccessLog(logParas).then((res) => {
+    // console.log(res);
+  });
+
   NProgress.start();
   if (to.path == '/login') {
     sessionStorage.removeItem('user');

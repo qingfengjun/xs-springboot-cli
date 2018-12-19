@@ -11,7 +11,7 @@ export default {
 
     };
     getUser(para).then((res) => {
-      console.log(res);
+      // console.log(res);
       this.tableData3 = res.data;
     });
   },
@@ -21,7 +21,7 @@ export default {
 
     };
     getRole(para).then((res) => {
-      console.log(res);
+      // console.log(res);
       var resdata = res.data;
       var data = [];
       for (var i = 0; i < resdata.length; i++) {
@@ -69,7 +69,7 @@ export default {
   },
   editUser() {
     let _this = this;
-    console.log(this.editform);
+    // console.log(this.editform);
     var userRoles=this.editform.userRoles;
     var data = [];
     for (var i = 0; i < userRoles.length; i++) {

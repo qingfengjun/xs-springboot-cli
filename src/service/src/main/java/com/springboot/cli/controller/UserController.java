@@ -3,16 +3,12 @@ package com.springboot.cli.controller;
 import java.util.List;
 import java.util.Map;
 
-import com.springboot.cli.dao.UserRepository;
-import com.springboot.cli.pojo.RoleAction;
 import com.springboot.cli.pojo.User;
 import com.springboot.cli.pojo.UserModel;
 import com.springboot.cli.pojo.UserRole;
-import com.springboot.cli.service.UserService;
+import com.springboot.cli.service.ifs.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

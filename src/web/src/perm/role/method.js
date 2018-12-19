@@ -41,8 +41,8 @@ export default {
         'id': rows.roleActions[i].actionName
       });
     }
-    console.log(selectKeys);
-    console.log(this.$refs.edittree);
+    // console.log(selectKeys);
+    // console.log(this.$refs.edittree);
     //解决第一次加载无此元素问题
     //https://blog.csdn.net/qq_39861508/article/details/78955722
     setTimeout(() => {
@@ -52,7 +52,7 @@ export default {
   },
   editUser() {
     let _this = this;
-    console.log(this.editform);
+    // console.log(this.editform);
     var nodes = this.$refs.edittree.getCheckedNodes();
     var roleActions = new Array();
     for (var i = 0; i < nodes.length; i++) {
@@ -67,7 +67,7 @@ export default {
     });
   },
   deleteUser(row) {
-    console.log(row);
+    // console.log(row);
     let _this = this;
     let para = {
       id: row.id

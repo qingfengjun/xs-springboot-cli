@@ -3,7 +3,7 @@ import Login from './Login'
 import index from './index'
 import user from './perm/user'
 import role from './perm/role'
-
+import accessLog from './log/access'
 let router = [
   {
     path: '/login',
@@ -46,8 +46,8 @@ let router = [
     component: Home,
     iconCls: 'el-icon-document',
     children: [{
-        path: '/log/opt',
-        component: user,
+        path: '/log/access',
+        component: accessLog,
         name: '操作日志'
       },
       {

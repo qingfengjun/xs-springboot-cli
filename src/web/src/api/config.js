@@ -23,7 +23,7 @@ axios.interceptors.request.use(config => {
 // http响应拦截器
 axios.interceptors.response.use(data => { // 响应成功关闭loading
   NProgress.done();
-  return data
+  return data;
 }, error => {
   NProgress.done();
   Message.error({

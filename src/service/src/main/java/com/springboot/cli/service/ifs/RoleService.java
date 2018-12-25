@@ -9,6 +9,6 @@ public interface RoleService {
      List<Role> getRoleList();
      void saveRole(Role role);
     void saveRoleAction(RoleAction action);
-    void delete(long id);
-    void deleteByRoleId(long roleId);
+    void delete(String id);
+    void deleteByRoleId(String roleId);
 }

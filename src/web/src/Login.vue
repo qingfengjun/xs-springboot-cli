@@ -57,7 +57,7 @@ export default {
           requestLogin(loginParams).then(res => {
             this.logining = false;
             //NProgress.done();
-            let user = res.data;
+            let user = res.data.bo;
             if (user.account !=null) {
               sessionStorage.setItem("user", JSON.stringify(user));
               this.$router.push({ path: "/" });

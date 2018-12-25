@@ -1,5 +1,7 @@
 package com.springboot.cli.pojo;
 
+import com.springboot.cli.pojo.base.BaseEntity;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,11 +10,8 @@ import java.util.List;
 
 @Entity
 @Table(name="cli_user")
-public class User implements Serializable {
+public class User extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    private long id;
     @Column(nullable = false)
     private String account;
     @Column(nullable = false)
@@ -66,13 +65,6 @@ public class User implements Serializable {
         this.face = face;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public List<UserRole> getUserRoles() {
         return userRoles;

@@ -9,13 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 
-public interface RoleActionRepository extends JpaRepository<RoleAction, Integer> {
+public interface RoleActionRepository extends JpaRepository<RoleAction, String> {
         @Transactional
-        Long deleteByRoleId(Long roleId);
+        Long deleteByRoleId(String roleId);
 
         @Query(nativeQuery = true,value ="select ra.* from cli_user u\n" +
                 "join cli_user_role ur on ur.user_id=u.id\n" +
                 "join cli_role_action ra on ra.role_id=ur.role_id\n" +
                 "where u.id=?1")
-        List<RoleAction> queryRoleActionByUser( Long userid);
+        List<RoleAction> queryRoleActionByUser( String userid);
 }

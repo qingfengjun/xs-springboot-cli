@@ -1,23 +1,17 @@
 package com.springboot.cli.pojo;
+import com.springboot.cli.pojo.base.BaseEntity;
+import javax.persistence.*;
 
-        import javax.persistence.*;
-        import java.io.Serializable;
-        import java.util.ArrayList;
-        import java.util.Date;
-        import java.util.List;
 
 @Entity
-@Table(name="cli_access_log")
-public class AccessLog implements Serializable {
-    @Id
-    @GeneratedValue
-    private long id;
+@Table(name = "cli_access_log")
+public class AccessLog extends BaseEntity {
+
     private String modelName;
     private String functionName;
     private String url;
     private String params;
-    private Date lastUpdateTime;
-    private String lastUpdateBy;
+
 
     public String getModelName() {
         return modelName;
@@ -52,19 +46,4 @@ public class AccessLog implements Serializable {
     }
 
 
-    public Date getLastUpdateTime() {
-        return lastUpdateTime;
-    }
-
-    public void setLastUpdateTime(Date lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
-    }
-
-    public String getLastUpdateBy() {
-        return lastUpdateBy;
-    }
-
-    public void setLastUpdateBy(String lastUpdateBy) {
-        this.lastUpdateBy = lastUpdateBy;
-    }
 }

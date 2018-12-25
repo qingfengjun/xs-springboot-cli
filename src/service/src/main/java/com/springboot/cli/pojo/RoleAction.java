@@ -1,31 +1,23 @@
 package com.springboot.cli.pojo;
 
+import com.springboot.cli.pojo.base.BaseEntity;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name="cli_role_action")
-public class RoleAction implements Serializable {
-    @Id
-    @GeneratedValue
-    private long id;
-    private long roleId;
+public class RoleAction extends BaseEntity {
+    @Column(nullable = false)
+    private String roleId;
     @Column(nullable = false)
     private String actionName;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getRoleId() {
+    public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(long roleId) {
+    public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
 

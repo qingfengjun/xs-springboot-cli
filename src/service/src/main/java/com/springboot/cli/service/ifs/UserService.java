@@ -13,8 +13,8 @@ public interface UserService {
 
     void edit(User user);
 
-    void delete(long id);
-    void deleteByUserId(long userId);
+    void delete(String id);
+    void deleteByUserId(String userId);
     void saveUserRole(UserRole userRole);
     UserModel queryUserByLogin(String account, String password);
 }

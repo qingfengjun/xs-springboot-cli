@@ -1,6 +1,7 @@
 package com.springboot.cli.controller;
 
 import com.springboot.cli.util.FileUtil;
+import com.springboot.cli.util.R;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ResourceLoader;
@@ -24,8 +25,9 @@ public class UploadController{
     private Logger logger = LoggerFactory.getLogger(getClass());
     //处理文件上传
     @RequestMapping(value="/img", method = RequestMethod.POST)
-    public @ResponseBody String uploadImg(@RequestParam("file") MultipartFile file,
-                                          HttpServletRequest request) {
+    public @ResponseBody
+    R uploadImg(@RequestParam("file") MultipartFile file,
+                HttpServletRequest request) {
 
         String contentType = file.getContentType();   //图片文件类型
         String fileName = file.getOriginalFilename();  //图片名字
@@ -42,7 +44,7 @@ public class UploadController{
         }
 
         // 返回图片的存放路径
-        return filePath+fileName;
+        return R.ok(filePath+fileName);
     }
 
 

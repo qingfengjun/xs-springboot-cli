@@ -31,11 +31,11 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(String id) {
         roleRepository.deleteById(id);
     }
     @Override
-    public void deleteByRoleId(long roleId) {
+    public void deleteByRoleId(String roleId) {
         roleActionRepository.deleteByRoleId(roleId);
     }
 }

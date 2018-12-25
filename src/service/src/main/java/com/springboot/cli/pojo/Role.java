@@ -1,5 +1,7 @@
 package com.springboot.cli.pojo;
 
+import com.springboot.cli.pojo.base.BaseEntity;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,23 +9,12 @@ import java.util.List;
 
 @Entity
 @Table(name="cli_role")
-public class Role implements Serializable {
-    @Id
-    @GeneratedValue
-    private long id;
+public class Role extends BaseEntity  {
     @Column(nullable = false)
     private String name;
 
     @OneToMany(mappedBy="roleId",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     private List<RoleAction> roleActions=new ArrayList<>();
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

@@ -12,7 +12,7 @@ export default {
     };
     getUser(para).then((res) => {
       // console.log(res);
-      this.tableData3 = res.data;
+      this.tableData3 = res.data.bo;
     });
   },
   getRoleData() { //---------------------获取列表数据
@@ -22,7 +22,7 @@ export default {
     };
     getRole(para).then((res) => {
       // console.log(res);
-      var resdata = res.data;
+      var resdata = res.data.bo;
       var data = [];
       for (var i = 0; i < resdata.length; i++) {
         data.push({

@@ -9,12 +9,17 @@
 			</el-form>
 		</el-col>
 <template>
+  <div style='margin-bottom: 20px'>
 <el-table
     :data="tableData3"
-    height="500"
+    height="600"
+    stripe
     border
     style="width: 100%">
-	
+	<el-table-column
+      type="index"
+      width="50">
+    </el-table-column>
     <el-table-column
       prop="functionName"
       label="模块"
@@ -42,6 +47,18 @@
       label="访问时间">
     </el-table-column>
   </el-table>
+  </div>
+  <div class="block">
+   <el-pagination type='flex' justify='end'
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="this.filters.page"
+      :page-sizes="[20, 50, 100, 500]"
+      :page-size="this.filters.size"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="this.filters.totalElements">
+    </el-pagination>
+  </div>
 </template>
 
 </section>

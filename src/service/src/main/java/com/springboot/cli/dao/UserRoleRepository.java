@@ -7,7 +7,7 @@ package com.springboot.cli.dao;
         import org.springframework.transaction.annotation.Transactional;
 
 
-public interface UserRoleRepository extends JpaRepository<UserRole, Integer> {
+public interface UserRoleRepository extends JpaRepository<UserRole, String> {
     @Transactional
-    Long deleteByUserId(Long userId);
+    Long deleteByUserId(String userId);
 }

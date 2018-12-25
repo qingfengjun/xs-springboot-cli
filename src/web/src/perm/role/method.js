@@ -11,7 +11,7 @@ export default {
     };
     getRole(para).then((res) => {
       console.log(res);
-      this.tableData3 = res.data;
+      this.tableData3 = res.data.bo;
     });
   },
   addUser() {

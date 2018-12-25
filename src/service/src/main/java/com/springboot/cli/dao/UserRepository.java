@@ -7,9 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository<User, Integer>{
+public interface UserRepository extends JpaRepository<User, String>{
     @Transactional
-    Long deleteById(Long id);
+    void deleteById(String id);
 
     @Query(nativeQuery = true,value ="select p.* from cli_user p where p.account=?1 and p.password=?2")
     List<User> queryUserByLogin(String account, String password);

@@ -9,7 +9,7 @@ import 'nprogress/nprogress.css'
 import './common/permUtils'
 import {
   AddAccessLog
-} from './api/cliapi'
+} from './cli/api'
 Vue.use(Router)
 Vue.use(ElementUI)
 const router = new Router({

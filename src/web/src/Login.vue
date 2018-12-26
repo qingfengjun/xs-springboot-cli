@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { requestLogin } from "./api/cliapi";
+import { requestLogin } from "./cli/api";
 //import NProgress from 'nprogress'
 export default {
   data() {

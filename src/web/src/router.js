@@ -1,9 +1,14 @@
-import Home from './Home'
+import Home from './business/Home'
+import Cli from './cli/Home'
 import Login from './Login'
-import index from './index'
-import user from './perm/user'
-import role from './perm/role'
-import accessLog from './log/access'
+import index from './business/index'
+import ask from './business/ask'
+import discuss from './business/discuss'
+import blog from './business/blog'
+import wiki from './business/wiki'
+import user from './cli/perm/user'
+import role from './cli/perm/role'
+import accessLog from './cli/log/access'
 let router = [
   {
     path: '/login',
@@ -12,19 +17,36 @@ let router = [
     hidden: true
 },{
     path: '/',
-    name: 'Dashbord',
+    name: '首页',
     component: Home,
     redirect: '/index',
+    hidden:true,
     iconCls: 'el-icon-document',
     children: [{
       path: '/index',
       component: index,
       name: '首页'
+    },{
+      path: '/discuss',
+      component: discuss,
+      name: '首页'
+    },{
+      path: '/ask',
+      component: ask,
+      name: '首页'
+    },{
+      path: '/blog',
+      component: blog,
+      name: '首页'
+    },{
+      path: '/wiki',
+      component: wiki,
+      name: '首页'
     }]
   }, {
     path: '/perm',
     name: '用户和权限',
-    component: Home,
+    component: Cli,
     iconCls: 'el-icon-document',
     children: [
       {
@@ -43,7 +65,7 @@ let router = [
   {
     path: '/log',
     name: '日志',
-    component: Home,
+    component: Cli,
     iconCls: 'el-icon-document',
     children: [{
         path: '/log/access',
@@ -60,7 +82,7 @@ let router = [
   {
     path: '/timer',
     name: '定时任务',
-    component: Home,
+    component: Cli,
     iconCls: 'el-icon-time',
     children: [{
         path: '/timer/task',
@@ -77,7 +99,7 @@ let router = [
   {
     path: '/data',
     name: '数据字典',
-    component: Home,
+    component: Cli,
     iconCls: 'el-icon-document',
     children: [{
       path: '/data',
@@ -88,7 +110,7 @@ let router = [
   {
     path: '/mail',
     name: '邮件',
-    component: Home,
+    component: Cli,
     iconCls: 'el-icon-message',
     children: [{
         path: '/mail/config',
@@ -109,7 +131,7 @@ let router = [
   }, {
     path: '/attach',
     name: '附件',
-    component: Home,
+    component: Cli,
     iconCls: 'el-icon-picture',
     children: [{
         path: '/attach/demo',
@@ -125,7 +147,7 @@ let router = [
   }, {
     path: '/upload',
     name: '导入导出',
-    component: Home,
+    component: Cli,
     iconCls: 'el-icon-upload',
     children: [{
       path: '/upload/demo',
@@ -135,7 +157,7 @@ let router = [
   }, {
     path: '/language',
     name: '多语言',
-    component: Home,
+    component: Cli,
     iconCls: 'el-icon-document',
     children: [{
       path: '/language/config',
@@ -149,7 +171,7 @@ let router = [
   }, {
     path: '/basic',
     name: '基础功能',
-    component: Home,
+    component: Cli,
     iconCls: 'el-icon-document',
     children: [{
       path: '/basic/wangedit',

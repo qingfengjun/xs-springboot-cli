@@ -1,13 +1,13 @@
 <template>
-<el-row>
-  <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
+<el-row class="container">
+  <el-col :span="4" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
     <el-card :body-style="{ padding: '0px' }">
-      <img src="" class="image">
+      <img src="http://element-cn.eleme.io/static/hamburger.50e4091.png" class="image">
       <div style="padding: 14px;">
         <span>好吃的汉堡</span>
         <div class="bottom clearfix">
           <time class="time">{{ currentDate }}</time>
-          <el-button type="text" class="button">操作按钮</el-button>
+          <a href="#/wiki/detail">进入</a>
         </div>
       </div>
     </el-card>

@@ -6,6 +6,7 @@ import ask from './business/ask'
 import discuss from './business/discuss'
 import blog from './business/blog'
 import wiki from './business/wiki'
+import wikidetail from './business/wiki/detail'
 import user from './cli/perm/user'
 import role from './cli/perm/role'
 import accessLog from './cli/log/access'
@@ -41,6 +42,10 @@ let router = [
     },{
       path: '/wiki',
       component: wiki,
+      name: '首页'
+    },{
+      path: '/wiki/detail',
+      component: wikidetail,
       name: '首页'
     }]
   }, {
